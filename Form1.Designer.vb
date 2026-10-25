@@ -1,4 +1,6 @@
-﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
+﻿Imports Assignment_Header_GUI.NativeHandler
+
+<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
 Partial Class Form1
     Inherits System.Windows.Forms.Form
     
@@ -102,5 +104,14 @@ Partial Class Form1
         Toolstrip.Controls.Add(texts)
         Toolstrip.Controls.Add(images)
         Toolstrip.Controls.Add(finals)
+        
+        Dim backcolour As Colour
+        backcolour = New Colour With {
+            .red = 100,
+            .green = 100,
+            .blue = 100
+            }
+        
+        AbstractGenerator(Nothing, 0, Nothing, 0, 1920,1080,3, backcolour,"[FONT FILE]",".netified")
     End Sub
 End Class
