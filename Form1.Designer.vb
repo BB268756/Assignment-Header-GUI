@@ -4,6 +4,9 @@ Partial Class Form1
     
     Friend toolstrip As TabControl = New TabControl()
     Friend basicSettings As TabPage = New TabPage("Basic Settings")
+    Friend texts As TabPage = New TabPage("Texts")
+    Friend images As TabPage = New TabPage("Images")
+    Friend finals As TabPage = New TabPage("Final")
     
     ' basic settings
     Friend bsWidthLabel As Label = New Label()
@@ -13,7 +16,10 @@ Partial Class Form1
     Friend bsHeightControl As NumericUpDown = New NumericUpDown()
     
     Friend bsBackColourLabel As Label = New Label()
-    Friend bsBackColourControl As ColorDialog = New ColorDialog()
+    Friend WithEvents bsBackColourControl As Button = New Button()
+    
+    Friend WithEvents bsSelectFontButton As Button = New Button()
+    Friend bsSelectFontAddressLabel As Label = New Label() 
 
     'Form overrides dispose to clean up the component list.
     <System.Diagnostics.DebuggerNonUserCode()>
@@ -65,16 +71,36 @@ Partial Class Form1
         bsHeightControl.Maximum = 1000000000000000000
         bsHeightControl.Value = 250
         
-      '  bsBackColourLabel.Text = "Colour:"
-      '  bsBackColourLabel.Location = New Point(bsWidthLabel.Location.X, bsWidthLabel.Location.Y + 102)
-      '  bsBackColourControl. = New Point(bsWidthControl.Size.Width + 5,bsWidthControl.Location.Y + 100)
+        bsSelectFontButton.Text = "Font"
+        bsSelectFontButton.Location = New Point(bsSelectFontButton.Location.X, bsSelectFontButton.Location.Y + 102)
+        
+        bsSelectFontAddressLabel.Text = "not selected"
+        bsSelectFontAddressLabel.Location = New Point(bsSelectFontAddressLabel.Location.X, bsSelectFontAddressLabel.Location.Y + 122)
+        bsSelectFontAddressLabel.Width = Me.Width
+        
+        bsBackColourLabel.Text = "Colour:"
+        bsBackColourLabel.Location = New Point(bsWidthLabel.Location.X, bsWidthLabel.Location.Y + 152)
+        
+        bsBackColourControl.Text = "Select Colour"
+        bsBackColourControl.Location = New Point(bsBackColourControl.Location.X + bsBackColourLabel.Width + 10, bsBackColourControl.Location.Y + 152)
         
         basicSettings.Controls.Add(bsWidthLabel)
         basicSettings.Controls.Add(bsWidthControl)
         
         basicSettings.Controls.Add(bsHeightLabel)
         basicSettings.Controls.Add(bsHeightControl)
+        
+        basicSettings.Controls.Add(bsSelectFontButton)
+        basicSettings.Controls.Add(bsSelectFontAddressLabel)
+        
+        basicSettings.Controls.Add(bsBackColourLabel)
+        basicSettings.Controls.Add(bsBackColourControl)
+        
         Me.Controls.Add(Toolstrip)
+        
         Toolstrip.Controls.Add(basicSettings)
+        Toolstrip.Controls.Add(texts)
+        Toolstrip.Controls.Add(images)
+        Toolstrip.Controls.Add(finals)
     End Sub
 End Class
